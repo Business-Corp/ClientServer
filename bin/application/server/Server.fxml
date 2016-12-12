@@ -1,7 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
-	
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.server.ServerController">
-	<!-- TODO Add Nodes -->
+
+
+<AnchorPane prefHeight="768.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.65" fx:controller="application.server.ServerController">
+   <children>
+      <TabPane layoutY="27.0" prefHeight="741.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="MailServer">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ToggleButton layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Server einschalten" />
+                        <Separator layoutY="677.0" prefHeight="7.0" prefWidth="600.0" />
+                        <Separator layoutY="513.0" prefHeight="7.0" prefWidth="600.0" />
+                        <TextArea layoutX="6.0" layoutY="544.0" prefHeight="133.0" prefWidth="590.0" />
+                        <Label layoutX="7.0" layoutY="521.0" text="Log" />
+                        <ListView layoutX="14.0" layoutY="165.0" prefHeight="342.0" prefWidth="200.0" />
+                        <Label layoutX="17.0" layoutY="140.0" text="Accounts" />
+                        <ListView layoutX="255.0" layoutY="165.0" prefHeight="341.0" prefWidth="333.0" />
+                        <Label layoutX="255.0" layoutY="140.0" text="Mails" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="ChatServer">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="1200.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
 </AnchorPane>
