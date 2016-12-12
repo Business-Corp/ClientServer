@@ -12,8 +12,7 @@
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="768.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.65" fx:controller="application.server.ServerController">
+<AnchorPane prefHeight="768.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.server.ServerController">
    <children>
       <TabPane layoutY="27.0" prefHeight="741.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -60,5 +59,6 @@
           </Menu>
         </menus>
       </MenuBar>
+      <Separator layoutX="598.0" layoutY="27.0" orientation="VERTICAL" prefHeight="741.0" prefWidth="7.0" />
    </children>
 </AnchorPane>
