@@ -21,6 +21,7 @@ public class Postfach {
 	public void addMail(Mail neueMail){
 		
 		if(neueMail!=null){
+					
 			mail.add(neueMail);
 		}
 		

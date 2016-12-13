@@ -6,6 +6,7 @@ import java.net.Socket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import csa.server.protokoll.HoelingMail;
 import csa.server.protokoll.SocketListener;
 import csa.server.protokoll.Sockets;
 
@@ -23,7 +24,7 @@ public class MailServer extends Thread {
 	
 	
 	public MailServer() {
-		// TODO Auto-generated constructor stub
+		mailbox.newUser("admin", "passwd");
 	}
 	
 	
@@ -47,6 +48,8 @@ public class MailServer extends Thread {
 					
 					client = serversocket.accept();
 					//threadpool.execute( neue verbindung );
+					
+					threadpool.execute(new HoelingMail(client));
 					
 					//hier den client dann an neuen thread aus threadpool übergeben. der neue Thread 
 					//ist wieder vom Protokoll abhaengig.
@@ -77,6 +80,9 @@ public class MailServer extends Thread {
 //			e.printStackTrace();
 		}
 		
+	}
+	public int getMailCount(){
+		return mailbox.mailCount();
 	}
 
 

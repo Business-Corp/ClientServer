@@ -49,6 +49,8 @@ public class Postamt {
 	public void addMail(String emailAdresse, Mail email){
 		
 		if(userMap.containsKey(emailAdresse)){
+			
+			handledMails++;	
 			User user = userMap.get(emailAdresse);
 			Postfach upf = postfachMap.get(user);
 			
@@ -73,6 +75,11 @@ public class Postamt {
 		}
 		
 		return null;
+	}
+
+	public int mailCount() {
+		return handledMails;
+		
 	}
 	
 	
