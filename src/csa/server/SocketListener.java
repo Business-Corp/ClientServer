@@ -3,6 +3,10 @@ package csa.server;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.logging.Logger;
 
 public class SocketListener implements Runnable{
@@ -35,10 +39,13 @@ public class SocketListener implements Runnable{
 		
 		while(listen){
 			
+			ExecutorService threadpool = Executors.newWorkStealingPool();
+			
 			try {
 				
 				
 				client = server.accept();
+				//threadpool.execute( neue verbindung );
 				
 				//hier den client dann an neuen thread aus threadpool übergeben. der neue Thread 
 				//ist wieder vom Protokoll abhaengig.
