@@ -17,17 +17,24 @@ public class SocketListener implements Runnable{
 	private boolean listen = true;
 	private ServerSocket server;
 	
-	public SocketListener(String name, int port) {
+	/**
+	 * erstellt einen neuen Socketlistener auf einem übergebenen port
+	 * @param name
+	 * @param port
+	 */
+	public SocketListener(int port) {
 
-		this.name=name;
+		
 		this.port=port;
 		
 		try {
 			server = new ServerSocket(port);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+//			e.printStackTrace();
+			
 			log("Socket auf Port "+port+" konnte nicht geoeffnet werden");
+			
 		}
 		
 	}
