@@ -69,6 +69,8 @@ public class HoelingMail implements Runnable {
 		
 			if(nextLine.startsWith("1100-")){
 				return mailToServer(nextLine.substring(5));
+			}else if(nextLine.startsWith("2100-")){
+				return mailToClient(nextLine.substring(5));
 			}
 			//ab hier kann der rest passieren
 			
@@ -77,6 +79,16 @@ public class HoelingMail implements Runnable {
 		return ".";
 		
 
+	}
+
+	/**
+	 * wenn der client eine mail vom server holen will
+	 * @param substring
+	 * @return
+	 */
+	private String mailToClient(String substring) {
+		// TODO Auto-generated method stub
+		return ".";
 	}
 
 	private String mailToServer(String client) {
