@@ -1,4 +1,4 @@
-package csa.server;
+package csa.server.protokoll;
 
 import java.io.IOException;
 import java.net.ServerSocket;
