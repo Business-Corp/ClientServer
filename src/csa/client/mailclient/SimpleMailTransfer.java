@@ -37,7 +37,7 @@ public class SimpleMailTransfer implements Runnable {
 			
 			String server="";
 			
-			out.println("AUTH-admin:passwd");
+			out.println("AUTH-"+user.getEmail()+":"+user.getPassword());
 			
 			server=in.nextLine();
 			

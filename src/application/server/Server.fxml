@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
@@ -12,7 +15,7 @@
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.server.ServerController">
+<AnchorPane prefHeight="768.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.server.ServerController">
    <children>
       <TabPane layoutY="27.0" prefHeight="741.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -20,14 +23,14 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ToggleButton layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Server einschalten" />
+                        <ToggleButton fx:id="mailserverButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Server einschalten" />
                         <Separator layoutY="677.0" prefHeight="7.0" prefWidth="600.0" />
                         <Separator layoutY="513.0" prefHeight="7.0" prefWidth="600.0" />
-                        <TextArea layoutX="6.0" layoutY="544.0" prefHeight="133.0" prefWidth="590.0" />
+                        <TextArea fx:id="mailLog" layoutX="6.0" layoutY="544.0" prefHeight="133.0" prefWidth="590.0" />
                         <Label layoutX="7.0" layoutY="521.0" text="Log" />
-                        <ListView layoutX="14.0" layoutY="165.0" prefHeight="342.0" prefWidth="200.0" />
+                        <ListView fx:id="mailAccountListe" layoutX="14.0" layoutY="165.0" prefHeight="342.0" prefWidth="200.0" />
                         <Label layoutX="17.0" layoutY="140.0" text="Accounts" />
-                        <ListView layoutX="255.0" layoutY="165.0" prefHeight="341.0" prefWidth="333.0" />
+                        <ListView fx:id="mailMailListe" layoutX="255.0" layoutY="165.0" prefHeight="341.0" prefWidth="333.0" />
                         <Label layoutX="255.0" layoutY="140.0" text="Mails" />
                      </children>
                   </AnchorPane>

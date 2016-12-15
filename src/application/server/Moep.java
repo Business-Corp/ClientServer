@@ -11,8 +11,10 @@ import java.util.Locale;
 
 import javax.xml.stream.events.StartElement;
 
+import csa.client.mailclient.SimpleMailGetter;
 import csa.server.mailserver.Mail;
 import csa.server.mailserver.MailServer;
+import csa.server.mailserver.Postamt;
 import csa.server.mailserver.User;
 
 public class Moep {
@@ -46,7 +48,9 @@ public class Moep {
 		Mail mail = new Mail("admin", "admin", "testmail", "testtext", new Date());
 		
 		MailServer ms = new MailServer();
-		Thread client = new Thread(new csa.client.mailclient.SimpleMailTransfer(new User("admin","admin"),mail));
+		Postamt.getInstance().newUser("admin", "passwd");
+		Thread client = new Thread(new csa.client.mailclient.SimpleMailTransfer(new User("admin","passwd"),mail));
+		
 		
 		System.out.println("starte server");
 		ms.start();
@@ -59,15 +63,26 @@ public class Moep {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		Thread client2= new Thread(new SimpleMailGetter(new User("admin", "passwd")));
+		client2.start();
+		
+		try {
+			System.out.println("schlafe fuer 4 sekunden");
+			Thread.currentThread().sleep(4000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		System.out.println("interrupt server");
 		ms.interruptServer();
 		client.interrupt();
-		
+		client2.interrupt();
 		try {
 			System.out.println("warte auf join");
 			ms.join();
 			client.join();
+			client2.join();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

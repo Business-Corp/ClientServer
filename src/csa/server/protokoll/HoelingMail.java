@@ -23,6 +23,8 @@ public class HoelingMail implements Runnable {
 	private boolean authenticated = false;
 	private Postamt postamt = Postamt.getInstance();
 	private String usermail;
+	private String trennzeichen = "<>";
+	DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.GERMAN);
 
 	public HoelingMail(Socket socket) {
 
@@ -69,6 +71,8 @@ public class HoelingMail implements Runnable {
 		
 			if(nextLine.startsWith("1100-")){
 				return mailToServer(nextLine.substring(5));
+			}else if(nextLine.startsWith("2100-")){
+				return mailToClient();
 			}
 			//ab hier kann der rest passieren
 			
@@ -79,11 +83,31 @@ public class HoelingMail implements Runnable {
 
 	}
 
+	private String mailToClient() {
+		// Hier wird die letzte mail an den client übertragen.
+		
+		out.println("OK");
+		Mail mail = postamt.getLastMail(usermail);
+		
+		String email = ""+mail.getAbsender()+trennzeichen;
+		email += mail.getEmpfaenger()+trennzeichen;
+		email += dateFormat.format(mail.getSendeDatum())+trennzeichen;
+		email += mail.getBetreff()+trennzeichen;
+		email += mail.getText();
+		
+		out.println(email);
+		
+		return in.nextLine();
+		
+		
+		
+	}
+
 	private String mailToServer(String client) {
 		//das ggf auch von client übergeben lassen
-		String trennzeichen = "<>";
+
 		
-		System.out.println(client);
+//		System.out.println(client);
 		
 		String[] mail = client.split(trennzeichen);
 
