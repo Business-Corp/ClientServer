@@ -3,6 +3,7 @@ package application;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import csa.server.mailserver.MailServer;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.value.ChangeListener;
@@ -29,6 +30,7 @@ public class ServerController implements Initializable{
 	
 	@FXML
 	ListView mailLog = new ListView<>();
+	private MailServer mailServer = new MailServer(); 
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -38,9 +40,19 @@ public class ServerController implements Initializable{
 			ToggleButton source = (ToggleButton) e.getSource();
 			
 			if(source.isSelected()){
+				mailServer=new MailServer();
 				System.out.println("button an");
+				mailServer.start();
 			}else{
 				System.out.println("button aus");
+				mailServer.interruptServer();
+				
+				try {
+					mailServer.join();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});		
 	}
