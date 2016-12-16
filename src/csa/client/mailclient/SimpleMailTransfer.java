@@ -31,7 +31,7 @@ public class SimpleMailTransfer implements Runnable {
 	public void run() {
 		
 		try {
-			long startMillis = System.currentTimeMillis();
+			
 			
 			anServer = new Socket("localhost", 3377);
 			in = new Scanner(anServer.getInputStream());
@@ -72,11 +72,7 @@ public class SimpleMailTransfer implements Runnable {
 				}
 				in.nextLine();
 				
-				long endMillis=System.currentTimeMillis();
-				
-				Long dauer= endMillis-startMillis;
-				
-				System.out.println("client verbindung und abholen von daten in millis: "+dauer);
+
 				
 				anServer.close();
 				
