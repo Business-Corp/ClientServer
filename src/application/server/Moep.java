@@ -38,42 +38,62 @@ public class Moep {
 //			e.printStackTrace();
 //		}
 //		
-		System.out.println(new Date().toString());
-		Date datum = new Date();
-		DateFormat format = new SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.GERMAN);
-		System.out.println(format.format(datum));
-	
-		Mail mail = new Mail("admin", "admin", "testmail", "testtext", new Date());
+//		System.out.println(new Date().toString());
+//		Date datum = new Date();
+//		DateFormat format = new SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.GERMAN);
+//		System.out.println(format.format(datum));
+//	
+//		Mail mail = new Mail("admin", "admin", "testmail", "testtext", new Date());
+//		
+//		MailServer ms = new MailServer();
+//		Thread client = new Thread(new csa.client.mailclient.SimpleMailTransfer(new User("admin","admin"),mail));
+//		
+//		System.out.println("starte server");
+//		ms.start();
+//		client.start();
+//		
+//		try {
+//			System.out.println("schlafe fuer 4 sekunden");
+//			Thread.currentThread().sleep(4000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		System.out.println("interrupt server");
+//		ms.interruptServer();
+//		client.interrupt();
+//		
+//		try {
+//			System.out.println("warte auf join");
+//			ms.join();
+//			client.join();
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		System.out.println("ende im gelände");
+//		System.out.println("gehandelte mails: "+ms.getMailCount());
 		
-		MailServer ms = new MailServer();
-		Thread client = new Thread(new csa.client.mailclient.SimpleMailTransfer(new User("admin","admin"),mail));
+		System.out.println(System.currentTimeMillis());
+		System.out.println(System.currentTimeMillis());
+		System.out.println(System.currentTimeMillis());
+		long jetzt = System.currentTimeMillis();
 		
-		System.out.println("starte server");
-		ms.start();
-		client.start();
-		
-		try {
-			System.out.println("schlafe fuer 4 sekunden");
-			Thread.currentThread().sleep(4000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		for(int i=0;i<=1000000;i++){
+			
 		}
 		
-		System.out.println("interrupt server");
-		ms.interruptServer();
-		client.interrupt();
+		long ende = System.currentTimeMillis();
 		
-		try {
-			System.out.println("warte auf join");
-			ms.join();
-			client.join();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println("ende im gelände");
-		System.out.println("gehandelte mails: "+ms.getMailCount());
+		System.out.println("dauer: "+(ende-jetzt));
+		
+		String zeitalsLong= "1482155493703";
+		
+		System.out.println(Long.parseLong(zeitalsLong));
+		
+		
+		
 
 	}
 
